@@ -1,0 +1,25 @@
+.todo{
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply py-12;
+    @apply px-4;
+}
+.todo-title{
+    @apply mt-6;
+    @apply text-center;
+    @apply text-3xl;
+    @apply font-bold; 
+    @apply text-gray-900;
+}
+
+.add-todo {
+    @apply w-full;
+    @apply rounded-md;
+    @apply border-0 ;
+    @apply p-1.5;
+    @apply text-gray-900;
+    @apply ring-1 ring-inset ring-gray-300;
+    @apply placeholder:text-gray-400;
+    @apply focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600
+}
