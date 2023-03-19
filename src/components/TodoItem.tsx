@@ -1,5 +1,5 @@
 import styles from './TodoItem.module.css';
-import { PencilIcon } from '@heroicons/react/24/solid'
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
 import { useRef, useState } from 'react';
 
 const TodoItem: React.FC<{ text: string, onRemoveTodo: () => void, onEditTodo: (text: string) => void }> = (
@@ -25,14 +25,16 @@ const TodoItem: React.FC<{ text: string, onRemoveTodo: () => void, onEditTodo: (
     <li className={styles.main} >
       {idEdit ? <div> <input className={styles.editTodo} defaultValue={props.text} onKeyDown={saveEditTodo} ref={todoTextInputRef}></input></div> :
         <div className={styles.item}>
-          <div onClick={props.onRemoveTodo}>
+          <div>
             {props.text}
           </div>
-          <div>
+          <div className='flex'>
             <PencilIcon className={styles.edit} onClick={() => {
               setIdEdit(true) //<== set idEdit state here
             }
             } />
+            <TrashIcon className={styles.edit} onClick={props.onRemoveTodo}
+            />
           </div>
         </div>}
 
