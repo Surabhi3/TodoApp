@@ -6,13 +6,15 @@ type TodosContextObj = {
     items: Todos[];
     addTodo: (text: string) => void;
     removeTodo: (id: number) => void;
+    editTodo: (id: number, text: string) => void;
 };
 
 export const TodosContext = React.createContext<TodosContextObj>({
     items: [],
-    addTodo: () => {},
-    removeTodo: (id: number) => {},
-  });
+    addTodo: () => { },
+    removeTodo: (id: number) => { },
+    editTodo: () => { }
+});
 
 const TodosContextProvider: React.FC<React.PropsWithChildren> = (props) => {
     const [todos, setTodos] = React.useState<Todos[]>([]);
@@ -30,12 +32,23 @@ const TodosContextProvider: React.FC<React.PropsWithChildren> = (props) => {
             return prevTodos.filter((todo) => todo.id !== todoId);
         });
     };
+    const editTodo = (todoId: number, todoText: string) => {
+        console.log(todos)
+        console.log("todo id" + todoId + " " + "todo text:" + todoText)
+        todos.filter((todo) => {
+            if (todo.id == todoId) {
+                todo.text = todoText
+                setTodos([...todos])
+            }
+        })
+    };
 
 
     const contextValue: TodosContextObj = {
         items: todos,
         addTodo,
         removeTodo,
+        editTodo,
     };
 
     return (

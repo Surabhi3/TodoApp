@@ -4,7 +4,7 @@ class Todos {
   
     constructor(todoText: string) {
       this.text = todoText;
-      this.id = new Date().getUTCDate();
+      this.id = new Date().valueOf();
     }
   }
   

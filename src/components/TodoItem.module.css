@@ -1,7 +1,21 @@
+.main {
+  margin: 1rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  background-color: #f7f5ef;
+}
+
 .item {
-    margin: 1rem 0;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    background-color: #f7f5ef;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit {
+  height: 24px;
+  width: 24px;
+  color: blue;
+}
+.editTodo{
+  width: 100%;
+  border: 0;
+}
